@@ -32,8 +32,17 @@ import sys
 
 def create_word_dict(filename):
     """Returns a word/count dict for the given file."""
-    # Your code here
-    return
+    dictionary = {}
+    with open(filename, "r") as f:
+        for line in f:
+            words = line.split()
+            for line in words:
+                if line.lower() in dictionary.keys():
+                    dictionary[line.lower()] += 1
+                else:
+                    dictionary[line.lower()] = 1
+
+    return dictionary 
 
 
 def print_words(filename):
