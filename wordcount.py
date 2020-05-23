@@ -49,13 +49,20 @@ def print_words(filename):
     """Prints one per line '<word> : <count>', sorted
     by word for the given file.
     """
-    # Your code here
+    words = create_word_dict(filename)
+    sorted_words = sorted(words.items())
+    for word in sorted_words:
+        print(word[0], " : ", word[1])
     return
 
 
 def print_top(filename):
     """Prints the top count listing for the given file."""
-    # Your code here
+    words = create_word_dict(filename)
+    #Howard Post assisted with this code
+    sort_words = sorted(words.items(), key= lambda kv:(kv[1], kv[0]), reverse= True)
+    for index in range(1, 21):
+        print(index, "-", sort_words[index][0], " : ", sort_words[index][1])
     return
 
 
